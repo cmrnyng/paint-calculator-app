@@ -34,7 +34,7 @@ export const WallInfo: React.FC<WallInfoProps> = ({ index, deleteWall, walls, up
   ): void => {
     e.preventDefault();
     const { value } = e.target;
-    if (type === "colour" || type === "brand" || value === "" || /^\d*\.?\d*$/.test(value)) {
+    if (type === "colour" || type === "brand" || value === "" || /^\d+\.?\d*$/.test(value)) {
       const updatedWall: Wall = new Wall(
         type === "width" ? value : wall.width,
         type === "height" ? value : wall.height,
