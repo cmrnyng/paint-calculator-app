@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  overscroll-behavior: none;
+  background: ivory;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "DM-Mono";
+  src: url("/fonts/DMMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Plus-Jakarta-Sans";
+  src: url("/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+}
+
+body {
+  color: #18181b;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-family: "Satoshi";
+}
+
+.main {
+  margin: 2em 0;
+  padding: 1em;
+  border-radius: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  gap: 2em;
+}
+
+.outputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.2em;
+  width: 38%;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+h1 {
+  font-family: "Plus-Jakarta-Sans";
+}
+
+h2 {
+  font-family: "Plus-Jakarta-Sans";
+}
+
+.wall-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+}
+
+.walls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+}
+
+.coats-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  border: none;
+}
+
+.selection {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.add {
+  border: none;
+  background-color: rgb(106, 151, 79);
+  padding: 1em;
+  border-radius: 10px;
+  width: 200px;
+  font-family: "Satoshi";
+  font-size: 1.2em;
+  color: ivory;
+}
+
+input {
+  font-family: "Satoshi";
+}
+
+select {
+  font-family: "Satoshi";
+}
+
+option {
+  font-family: "Satoshi", sans-serif;
+}
+
+.coats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.subcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.waste-box {
+  color: ivory;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  height: fit-content;
+  background-color: rgb(106, 151, 79);
+  border-radius: 10px;
+  padding: 1em;
+  gap: 0.5em;
+}
+
+.cb-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  font-size: 1.2em;
+  font-weight: 700;
+  gap: 1em;
+  /* border: 1px solid red; */
+}
+
+.cb-group > input {
+  height: 2em;
+  width: 2em;
+}
+
+.selection > input {
+  height: 2em;
+  width: 2em;
+}
+
+.uppercase::first-letter {
+  text-transform: capitalize;
+}
+
+.outputs h2 {
+  text-align: center;
+}
+
+.outputs table {
+  text-align: center;
+}
+
+.outputs thead {
+  font-size: 1.05em;
+}
+
+.outputs tbody {
+  font-weight: 400;
+}
+
+.outputs hr {
+  width: 80%;
+  align-self: center;
+  border: 1px solid rgb(226, 226, 210);
+}
+
+.pricing-tables {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.table-title {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.table-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.total {
+  text-align: end;
+}
+
+.note {
+  color: rgba(0, 0, 0, 63.92%);
+}
+
+.note > span {
+  color: rgb(106, 151, 79);
+}
