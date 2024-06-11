@@ -1,5 +1,10 @@
 import Wall from "./Wall";
-import { findCheapestPaintCombination, duluxPrices, goodHomePrices } from "./paintUtils";
+import {
+  calculatePaintQuantities,
+  findCheapestPaintCombination,
+  duluxPrices,
+  goodHomePrices,
+} from "./paintUtils";
 import { OutputEntry } from "./OutputEntry";
 
 interface OutputProps {
@@ -9,18 +14,7 @@ interface OutputProps {
 }
 
 export const Output: React.FC<OutputProps> = ({ walls, coats, includeWaste }) => {
-  const paintQuantities = new Map();
-
-  for (const wall of walls) {
-    const key = `${wall.brand}-${wall.colour}`;
-    paintQuantities.set(
-      key,
-      (paintQuantities.has(key) ? paintQuantities.get(key) : 0) +
-        Math.round(wall.calculateArea(includeWaste, coats) * 10) / 100
-    );
-  }
-  console.log(paintQuantities);
-
+  const paintQuantities = calculatePaintQuantities(walls, coats, includeWaste);
   const quantitiesArr = Array.from(paintQuantities.entries());
 
   return (

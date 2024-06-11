@@ -1,3 +1,5 @@
+import Wall from "./Wall";
+
 type PaintVolume = {
   volume: number; // in units (10 units = 1 litre)
   price: number; // in £
@@ -18,13 +20,33 @@ export const goodHomePrices: PaintVolume[] = [
   { volume: 10, price: 5 },
 ];
 
+// Calculate paint quantities for each brand and colour
+export const calculatePaintQuantities = (
+  walls: Wall[],
+  coats: number,
+  includeWaste: boolean
+): Map<string, number> => {
+  const paintQuantities = new Map();
+
+  for (const wall of walls) {
+    const key = `${wall.brand}-${wall.colour}`;
+    paintQuantities.set(
+      key,
+      (paintQuantities.has(key) ? paintQuantities.get(key) : 0) +
+        Math.round(wall.calculateArea(includeWaste, coats) * 10) / 100
+    );
+  }
+
+  return paintQuantities;
+};
+
 // Calculate price & paint quantity combinations
 export const findCheapestPaintCombination = (
-  requiredLiters: number,
+  requiredLitres: number,
   brand: string
 ): [number, string] => {
   // Convert required litres to integer units
-  const requiredUnits = Math.round(requiredLiters * 10); // Scale by 10 and round to handle floating point precision
+  const requiredUnits = Math.round(requiredLitres * 10); // Scale by 10 and round to handle floating point precision
 
   // Create an array to store the minimum cost for each volume of paint
   const priceArr: number[] = Array(requiredUnits + 1).fill(Infinity);
