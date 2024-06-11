@@ -86,9 +86,9 @@ export const findCheapestPaintCombination = (
         .entries()
     ),
   ].reduce((acc, [volume, count], index) => {
-    const volumeInLiters = volume / 10;
+    const volumeInLitres = volume / 10;
     const prefix = index === 0 ? "" : ", ";
-    return `${acc}${prefix}${count > 1 ? `${count} * ` : ""}${volumeInLiters}L`;
+    return `${acc}${prefix}${count > 1 ? `${count} * ` : ""}${volumeInLitres}L`;
   }, "");
 
   return [priceArr[requiredUnits], combinationString];
